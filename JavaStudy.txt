@@ -52,3 +52,67 @@ final 키워드
 - final 메소드: 자식 클래스가 부모 클래스의 특정 메소드를 오버라이딩 못함
 - final 필드: 상수정의(초깃값 설정-변경안됨) 
               프로그램 전체에서 사용할 상수 선언 ex) public static final double PI = 3.141592
+
+5. 상속
+
+상속의 장점 - 클래스 사이의 멤버 중복 선언 불필요, 클래스 간결화, 클래스 계층적 분류 및 관리
+       특징 - 다중상속X, 상속횟수제한X, 최상위 클래스는 java.lang.Object 클래스
+
+서브 클래스 인스턴스가 생성될 때 생성자 순서
+- 서브 클래스 생성자 호출 -> 슈퍼 클래스 생성사 호출 -> 슈퍼 클래스 생성자 실행 -> 서브 클래스 생성자 실행
+
+슈퍼 클래스의 매개변수 있는 생성자 호출하는 방법
+- super(매개변수) 사용: 반드시 생성자 코드의 첫 라인에 와야함
+
+캐스팅(강제 타입 변환) - 업 캐스팅(서브클래스->슈퍼클래스:슈퍼클래스 = 서브클래스):슈퍼클래스멤버만접근
+                       - 다운 캐스팅(업캐스팅 된것을 다시 원래대로 되돌림)
+                             - 명시적으로 타입을 지정해 주어야함 Ex) Student s = (Student)p;
+
+instanceof 연산자
+- 레퍼런스가 가르키는 실제 객체가 어떤 클래스 타입인지 구분하기 위함(boolean타입)
+  Ex)
+  Person jee = new Student();                      Person
+  Person kim = new Professor();      Student                    Researcher
+  Person lee = new Researcher();                                Professor
+  if(jee instanceof Person)      // true
+  if(jee instanceof Student)     // true
+  if(Kim instanceof Student)     // false
+  if(Kim instanceof Professor)   // true
+  if(Kim instanceof Researcher)  // true
+  if(lee instanceof Student)     // false
+  if("Java" instanceof String)   //true
+  if(3 instanceof int)  //error : 객체만 사용 가능
+
+오버로딩과 오버라이딩
+오버로딩 - 메소드의 중복작성, 정적바인딩
+오버라이딩 - 서브 클래스에서 슈퍼 클래스에 있는 메소드와 동일한 이름의 메소드 재작성, 동적바인딩
+             슈퍼클래스 메소드의 접근 지정자보다 접근범위가 좁아질 수 없다.
+             접근범위 : public > protected > default > private (따라서 private 메소드는 오버라이딩X)
+
+추상클래스 - 클래스들의 구조선언(=책의 목차)
+구현 : abstract class 이름
+서브 클래스가 추상 클래스가 되지 않으려면 추상 메소드를 모두 오버라이딩 해야함
+일반 메소드 포함 가능
+
+인터페이스
+- 선언 : interface 키워드 사용
+- 멤버는 추상 메소드와 상수만으로 구성
+- 모든 메소드는 추상메소드이며 public, 생략가능(public static final도 생략가능)
+- 인터페이스 객체 생성X, 레퍼런스 변수 타입으로 사용
+- 다른 인터페이스에 상속될 수 있음
+  Ex) interface 상속
+  interface MP3{
+     void play(); void stop();
+  }
+  interface MusicPhone extends MP3{
+     void playMP3RingTone();
+  }
+  Ex) interface 구현
+  interface USBMouse {
+    void mouseMove(); void mouseClick();
+  }
+  public class MouseDriver implements USBMouse {
+    public void mouseMove(){}
+    public void mouseClick(){}
+    // 다른 메소드추가가능
+  }
