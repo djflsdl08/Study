@@ -116,3 +116,49 @@ instanceof 연산자
     public void mouseClick(){}
     // 다른 메소드추가가능
   }
+
+6. 패키지 개념과 자바 기본 패키지
+
+object 클래스
+-java.lang 패키지에 속한 클래스, 자바 클래스 구조의 최상위
+-주요 매소드
+  Class getClass() : 바로 이 객체 리턴
+     ex) Point p = new Point(2,3);
+	 System.out.println(p.getClass().getName());   // 출력 : Point
+  String toString() : 객체를 문자열로 변환리턴(return getClass().getName()+"@"+Integer.toHexString(hashCode()));
+     ex) Point p = new Point(2,3);
+         System.out.println(a.toString());    //출력 : Point@c17164
+     객체와 문자열이 + 연산이 되는 경우 객체의 toString() 메소드를 호출한다.
+  ==연산자와 equals()메소드
+  == : 레퍼런스가 동일한지 판단
+  equals() : 내용이 동일한지 판단 -> 오버라이딩 하여 사용하는 것을 원칙
+  ex) String a = new String("Hello!");
+      String b = new String("Hello!");
+      if(a == b) System.out.println("a == b")   // false
+      if(a.equals(b)) System.out.println("a와 b의 내용이 같다.");  //true
+
+Wrapper 클래스!(*중요)
+- 기본 데이터 타입의 값을 객체로 만들어 사용(Byte,Short,Integer,Long,Character,Double,Float,Boolean)
+  ex) intValue()->값 알아냄,parseInt("123")->문자열을 해당 데이터 값으로 변환,Integer.toString(123)->해당 데이터 값을 문자열로 변환
+- 박싱(boxing) : 기본 데이터 타입을 Wrapper 클래스로 변환 <-> 언박싱(unboxing)
+
+String 클래스 -> 간단한 문자열
+String a = "Hello";  // 스트링 리터럴
+String b = "Java";
+String c = "Hello";    // 힙 메모리에서 a와 공유(리터럴 테이블)
+Strind d = new String("Hello");
+String e = new String("Java");
+String f = new String("Hello");   // 힙 메모리에서 a와 공유하지 않음.
+
+StringBuffer 클래스 -> 문자열의 길이가 길거나 문자열 작업이 많은 경우
+객체의 해시코드 값이 같으면 같은 객체
+cf) 스트링 객체는 문자열 조작 후 새로운 객체가 생성되어 해시코드 값이 달라짐 but, 스트링버퍼객체는 아님
+
+StringTokenizer 클래스 -> 문자열을 분리하기 위해서 사용
+토큰 : 구분문자로 분리된 문자열
+
+Math 클래스 -> 모든 멤버 static으로 정의
+ex) double d = Math.random()*100;  // 0.0 ~ 99.9999 실수 발생
+    int n = (int)(Math.round(d));  // d를 반올림한 정수 리턴
+
+
