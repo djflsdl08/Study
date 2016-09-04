@@ -1,0 +1,21 @@
+package Practice5;
+import java.util.Scanner;
+
+public class MakeTriangle {
+	public static void main(String[] args){
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("정수를 입력하면 삼각형을 만들 수 있는지 판별하는 프로그램 입니다.");
+		System.out.print("정수 3개를 입력하세요. ");
+		int a = scanner.nextInt();
+		int b = scanner.nextInt();
+		int c = scanner.nextInt();
+		int sum,max;
+		
+		max = (a>b) ? ((b>c) ? a : (a>c) ? a : c) : ((b>c) ? b : c) ;
+		sum = ( a + b + c ) - max;
+		if(max < sum) System.out.print("입력한 3 정수로 삼각형을 만들 수 있습니다. ");
+		else System.out.print("입력한 3 정수로 삼각형을 만들 수 없습니다. ");
+		
+		scanner.close();
+	}
+}
