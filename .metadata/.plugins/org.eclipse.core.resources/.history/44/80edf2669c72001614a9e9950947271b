@@ -1,0 +1,40 @@
+package OpenChallenge;
+import java.util.Scanner;
+
+public class RockScissorsPaper {
+	public static void main(String[] args){
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("가위 바위 보 게입입니다. 가위, 바위, 보 중에서 입력하세요.");
+		System.out.print("철수 >> ");
+		System.out.print("영희 >> ");
+		String people1 = scanner.next();
+		String people2 = scanner.next();
+		
+		if(people1.equals("가위")){
+			switch(people2){
+			case "가위" : System.out.print("영희와 철수가 비겼습니다."); break;
+			case "보" : System.out.print("철수가 이겼습니다."); break;
+			case "바위" : System.out.print("영희가 이겼습니다."); break;
+			default : System.out.println();
+			}
+		}
+		if(people1.equals("바위")){
+			switch(people2){
+			case "가위" : System.out.print("철수가 이겼습니다."); break;
+			case "보" : System.out.print("영희가 이겼습니다."); break;
+			case "바위" : System.out.print("철수와 영희가 비겼습니다."); break;
+			default : System.out.println();
+			}
+		}
+		if(people1.equals("보")){
+			switch(people2){
+			case "가위" : System.out.print("영희가 이겼습니다."); break;
+			case "보" : System.out.print("영희와 철수가 비겼습니다."); break;
+			case "바위" : System.out.print("철수가 이겼습니다."); break;
+			default : System.out.println();
+			}
+		}
+		
+		scanner.close();
+	}
+}

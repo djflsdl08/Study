@@ -1,0 +1,10 @@
+package OpenChallenge;
+
+public class MyInfoApp {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

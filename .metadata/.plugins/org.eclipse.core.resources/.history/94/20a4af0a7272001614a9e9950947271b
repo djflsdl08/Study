@@ -1,0 +1,12 @@
+package Practice2;
+import java.util.Scanner;
+
+public class IDNumber {
+	public static void main(String[] args){
+		Scanner a = new Scanner(System.in).useDelimiter("\\s|-");
+		String ch = a.next();
+	
+		System.out.print("주민번호 앞자리는 " + ch);
+		
+	}
+}

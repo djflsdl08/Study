@@ -1,0 +1,14 @@
+package pack;
+
+class Ex{
+	
+}
+
+public class Ex {
+
+	public static void main(String[] args) {
+		Rectangle r = new Rectangle();
+		
+	}
+
+}

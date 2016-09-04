@@ -1,0 +1,20 @@
+package Practice1;
+import java.util.Scanner;
+
+public class English {
+	
+	public static void main(String[] args){
+		Scanner in = new Scanner(System.in);
+		
+		System.out.println("키보드에서 영문자 한 자를 입력하세요");
+		char ch = in.next().charAt(0);
+		
+		ch = (char)((ch>='A'&&ch<='Z')? (ch+('a'-'A')) : (ch>='a'&&ch<='z')? (ch-('a'-'A')) : '0');
+		
+		if(ch=='0'){
+			System.out.print("영문자가 아닙니다.");
+		}
+		else System.out.print(ch);
+		
+	}
+}
