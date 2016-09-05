@@ -161,4 +161,56 @@ Math 클래스 -> 모든 멤버 static으로 정의
 ex) double d = Math.random()*100;  // 0.0 ~ 99.9999 실수 발생
     int n = (int)(Math.round(d));  // d를 반올림한 정수 리턴
 
+7. 제네릭과 컬렉션
+
+컬렉션 - 가변크기의 컨테이너, 요소(가변 개수의 객체)들의 모임
+       - 컬렉션을 구현한 모든 클래스들은 Object를 상속받은 객체들만 요소로 받아들임
+         따라서 기본타입(byte,char,short,int...)는Wrapper 클래스를 이용하여 객체화 한 뒤 삽입함
+	 (JDK 1.5 이전버전만 해당)
+Vector 클래스
+경로명 : java.util.Vector
+가변 개수 요소의 배열 구현 시 사용
+맨 마지막이나 중간에 삽입 -> 삽입되는 요소 뒤의 요소들을 뒤로 하나씩 이동
+	삽입 : add(); 사용
+	       ex)
+		   Vector v = new Vector();
+		   v.add("Hello");	// String 삽입 가능
+		   v.add(new Person()); // Person 객체 삽입 가능
+		   v.add(null);		// null 삽입 가능
+		   v.add(4);		// int 타입 : 컴파일 오류(JDK 1.5 이전)  =>  v.add(new Integer(4));
+		   v.add('r');		// char 타입 : 컴파일 오류(JDK 1.5 이전) =>  v.add(new Character('r'));
+     					// JDK 1.5 부터는 자동 박싱/언박싱의 기능으로 사용 가능
+                   v.add(2,"Sahni")     // index 2에 삽입(중간 삽입 가능)
+요소 삭제 -> 삭제되는 공간 뒤의 요소들을 앞으로 하나씩 이동
+	삭제 : remove(); 사용
+	       ex)
+		  V.remove(1)	// index 1 위치에 있는 요소 삭제
+		  v.removeAllElements() // Vector에 있는 모든 요소 삭제
+다양한 타입 요소 삽입 가능(String, Integer,Person...)
+생성 : Vector v = new Vector();  // 디폴트 용량의 Vector 생성 if.용량 지정 시 new Vector(n)하면 됨
+Vector의 크기 : 들어있는 요소의 개수-size(), Vector의 용량 : 요소를 수용할 수 있는 크기-capacity()
+ex) 
+	Vector  v = new Vector();
+	v.add(new Integer(4));
+	v.add("Hello");
+	v.add(new Integer(5));
+	int sum = 0;
+	for(int i=0;i<v.size();i++){
+		Object obj = v.get(i);
+		if(obj instanceof Integer){
+			Integer x = (Integer)obj;
+			int n = x.intValue();
+			sum += n;
+		}
+	}
+	System.out.print("모든 정수의 합은" + sum);	// 출력 : 모든 정수의 합은 9
+
+ArrayList 클래스
+경로명 : java.util.ArrayList
+가변 크기의 배열을 구현한 컬렉션 클래스
+Vector 클래스와 유사(다른점 : ArrayList는 다수의 스레드가 동시 조작시 동기화 지원X)
+                    (다른점 : a.clear();     // ArrayList 에 있는 모든 요소 삭제)
+
+Hashtable 클래스
+경로명 : java.util.Hashtable(Map interface 구현)
 
