@@ -19,6 +19,19 @@ public class Practice8 {
 		else if((x1<50&&y1<50&&x2>100&&y2>100)||(x1>100&&y1>100)&&(x2<50&&y2<50)){
 			System.out.println("Rectangle overlap.");
 		}
+		else if((x1<50&&y1>100&&x2>100&&y2<50)||(x1>100&&y1<50)&&(x2<50&&y2>100)){
+			System.out.println("Rectangle overlap.");
+		}
+		else if(x1>=50&&x1<=100&&x2>=50&&x2<=100){
+			if((y1<50&&y2>100)||(y1>100&&y2<50))
+				System.out.println("Rectangle overlap.");
+			else System.out.println("Rectangle do not overlap.");
+		}
+		else if(y1>=50&&y1<=100&&y2>=50&&y2<=100){
+			if((x1<50&&x2>100)||(x1>100&&x2<50))
+				System.out.println("Rectangle overlap.");
+			else System.out.println("Rectangle do not overlap.");
+		}
 		else System.out.println("Rectangle do not overlap.");
 		scanner.close();
 	}
