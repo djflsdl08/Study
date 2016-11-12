@@ -21,6 +21,8 @@ public class AddressBook {
 			System.out.print("삽입 : 0, 삭제 : 1, 찾기 : 2, 전체보기 : 3, 종료 : 4 >> ");
 			n = scanner.nextInt();
 			if(n<0||n>4) System.out.println("입력오류! 다시 입력해주세요!");
+			keys = map.keySet();
+			it = keys.iterator();
 			switch(n) {
 			case 0: insert();break;
 			case 1: remove();break;
@@ -34,8 +36,6 @@ public class AddressBook {
 	}
 	
 	public void insert() {
-		keys = map.keySet();
-		it = keys.iterator();
 		boolean sameName = false;
 		
 		System.out.print("이름 >> ");
@@ -57,8 +57,6 @@ public class AddressBook {
 		}
 	}
 	public void remove() {
-		keys = map.keySet();
-		it = keys.iterator();
 		boolean remove = false;
 		
 		System.out.print("삭제하고 싶은 이름은? >> ");
@@ -79,8 +77,6 @@ public class AddressBook {
 	}
 	
 	public void search() {
-		keys = map.keySet();
-		it = keys.iterator();
 		boolean search = false;
 		
 		System.out.print("찾고 싶은 이름은? >> ");
@@ -101,9 +97,6 @@ public class AddressBook {
 	}
 	
 	public void view() {
-		keys = map.keySet();
-		it = keys.iterator();
-		
 		while(it.hasNext()) {
 			String key = it.next();
 			Phone value = map.get(key);
